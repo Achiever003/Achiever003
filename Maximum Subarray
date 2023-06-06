@@ -1,0 +1,21 @@
+class Solution:
+    def maxSubArray(self, nums: List[int]) -> int:
+        s,maxsum = 0,0
+        n = len(nums)
+        b = False
+        for i in nums:
+            if(i>0):
+                b = True
+                break
+        if(n!=1 and b == True):
+            for i in nums:
+                s += i
+                if(s>maxsum):
+                    maxsum = s
+                if(s<0):
+                    s=0
+            return maxsum
+        elif(n == 1):
+            return nums[0]
+        elif(b == False):
+            return max(nums)
