@@ -1,0 +1,15 @@
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        i = 0
+        j = 1
+        n = len(nums)
+        while(i<n and j<n):
+            sum1 = nums[i]+nums[j]
+            if(sum1 == target and i!=j):
+                break
+            if(j==n-1):
+                i+=1
+                j = i
+            j += 1
+        b = [i,j]
+        return b
