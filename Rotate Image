@@ -1,0 +1,35 @@
+class Solution {
+    public void rotate(int[][] matrix) {
+        int n = matrix.length;
+        transpose(matrix,n);
+        for(int i=0;i<n;i++){
+            reverse(matrix[i],0);
+        }
+    }
+    public void transpose(int[][] a,int n){
+        int[][] b = new int[n][n];
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                b[i][j] = a[i][j];
+            }
+        }
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                a[i][j] = b[j][i];
+            }
+        }
+    }
+    public void reverse(int[] a,int start){
+        int end = a.length-1;
+        while(start<end){
+            swap(a,start,end);
+            start++;
+            end--;
+        }
+    }
+    public void swap(int[] a,int n1,int n2){
+        int temp = a[n1];
+        a[n1] = a[n2];
+        a[n2] = temp;
+    }
+}
